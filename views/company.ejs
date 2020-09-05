@@ -1,0 +1,33 @@
+<h2>company info</h2>
+
+ADD Company
+<form action="/company/add" method="post">
+  name : <input type="text" name="name" placeholder="Enter name" /><br />
+  Info : <input type="text" name="info" placeholder="Enter Info" /> <br />
+  Openings :
+  <input type="number" name="openings" placeholder="Openings" /><br />
+  <input type="submit" value="SUBMIT" />
+</form>
+
+<hr />
+<h2>Company Details</h2>
+
+<table border="1" cellpadding="10" cellspacing="1">
+  <tr>
+    <td>Name</td>
+    <td>Info</td>
+    <td>Openings</td>
+  </tr>
+
+  <% if(companies){%>
+  <!-- print data -->
+  <%for(company of companies){%>
+  <tr>
+    <td><%=company.name%></td>
+    <td><%=company.info%></td>
+    <td><%=company.openings%></td>
+  </tr>
+  <%}%><%}%>
+</table>
+
+<hr />

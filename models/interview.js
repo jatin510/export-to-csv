@@ -18,12 +18,10 @@ const interviewSchema = mongoose.Schema(
       type: mongoose.Schema.Types.ObjectId,
       ref: "Company",
     },
-
     date: {
       type: Date,
       required: true,
     },
-
     result: {
       type: String,
       enum: ["Pass", "Fail", "On Hold", `Didn't Attempt`],
