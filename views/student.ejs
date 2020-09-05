@@ -1,0 +1,24 @@
+<h1>Student</h1>
+
+<h3>Add Student</h3>
+<form action="/student/add" method="post">
+  <input type="text" name="name" placeholder="Enter Name" /><br />
+  <input type="text" name="batch" placeholder="Enter Batch" /> <br />
+  <input type="text" name="college" placeholder="Enter College" /> <br />
+  <input type="text" name="year" placeholder="Enter Year of Graduation" /><br />
+  <select name="status">
+    <option value="Placed">Placed</option>
+    <option value="Not Placed">Not Placed</option>
+  </select>
+  <br />
+
+  Score :
+  <input type="number" name="DSA" placeholder="Enter score in DSA" />
+  <input type="number" name="web" placeholder="Enter score in web" />
+  <input type="number" name="react" placeholder="Enter score in react" /><br />
+  <input type="submit" value="SUBMIT" />
+</form>
+
+<h2>DATA TO BE PRINTED</h2>
+
+<%locals%>

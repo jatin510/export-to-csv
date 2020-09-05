@@ -17,6 +17,7 @@ app.use("/uploads", express.static(__dirname + "/uploads"));
 
 // setting up layouts
 app.use(expressLayouts);
+app.set("view engine", "ejs");
 // extract style and script from sub pages
 app.set("layout extractStyles", true);
 app.set("layout extractScripts", true);

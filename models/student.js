@@ -1,15 +1,21 @@
 const mongoose = require("mongoose");
 
-const studentSchema = new mongoose.Schema({
-  name: "",
-  batch: "",
-  college: "",
-  year: "",
-  // can only select from two values
-  status: ["placed", "not placed"],
-  score: {
-    DSA: 1,
-    web: 1,
-    react: 1,
-  },
+const Score = new mongoose.Schema({
+  DSA: Number,
+  web: Number,
+  react: Number,
 });
+
+const studentSchema = new mongoose.Schema({
+  name: String,
+  batch: String,
+  college: String,
+  year: String,
+  // can only select from two values
+  status: { type: String, enum: ["Placed", "Not Placed"] },
+  score: Score,
+});
+
+const Student = mongoose.model("Student", studentSchema);
+
+module.exports = Student;
