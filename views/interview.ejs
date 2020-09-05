@@ -1,3 +1,59 @@
 <h2>Interview</h2>
 
-<form action=""></form>
+<form action="/interview/add" method="post">
+  <!-- . -->
+  Student Name :
+  <select name="student">
+    <%for(student of students){%>
+    <option value="<%=student._id%>"><%=student.name%></option>
+    <%}%>
+  </select>
+  <br />
+  Company Name :
+  <select name="company">
+    <%for(company of companies){%>
+    <option value="<%=company._id%>"><%=company.name%></option>
+    <%}%>
+  </select>
+  <br />
+  Date :
+  <input type="Date" name="date" /><br />
+  Status :
+  <select name="result">
+    <!-- "Pass", "Fail", "On Hold", `Didn't Attempt -->
+    <option value="Pass">Pass</option>
+    <option value="Fail">Fail</option>
+    <option value="On Hold">On Hold</option>
+    <option value="Didn't Attempt">Didn't Attempt</option>
+  </select>
+  <br />
+  <input type="submit" value="submit" />
+</form>
+
+<hr />
+<h3>Interview Data</h3>
+
+<form action="/download" method="get">
+  <input type="submit" value="Eport to CSV" />
+</form>
+<hr />
+<table border="1" cellspacing="3" cellpadding="6">
+  <tr>
+    <th>Student</th>
+    <th>Company</th>
+    <th>Date</th>
+    <th>Result</th>
+  </tr>
+
+  <!-- if student data is available -->
+  <% if(interviews){%>
+  <!-- print data -->
+  <%for(interview of interviews){%>
+  <tr>
+    <td><%=interview.student.name%></td>
+    <td><%=interview.company.name%></td>
+    <td><%=interview.date%></td>
+    <td><%=interview.result%></td>
+  </tr>
+  <%}%> <%}%>
+</table>

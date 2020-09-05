@@ -5,7 +5,6 @@ module.exports.home = async (req, res) => {
     students = await Student.find();
     // console.log("students data", students);
 
-    console.log();
     return res.render("student", { students });
   } catch (err) {
     console.log("error student page ", err);
