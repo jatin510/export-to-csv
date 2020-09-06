@@ -6,9 +6,9 @@ const db = require("./config/mongoose");
 const session = require("express-session");
 const passport = require("passport");
 const expressLayouts = require("express-ejs-layouts");
-// const passportLocal = require('./config/pass')
+const passportLocal = require("./config/passport-local-strategy");
 
-// const MongoStore = require("connect-mongo")(session);
+const mongoStore = require("connect-mongo")(session);
 
 app.use(express.urlencoded());
 app.use(cookieParser());
@@ -22,6 +22,35 @@ app.set("view engine", "ejs");
 app.set("layout extractStyles", true);
 app.set("layout extractScripts", true);
 
+// passport middleware
+app.use(
+  session({
+    name: "exportToCSV",
+    secret: "something",
+    resave: false,
+    saveUninitialized: false,
+    cookie: {
+      secure: true,
+      maxAge: 1000 * 100 * 100,
+    },
+    store: new mongoStore(
+      {
+        mongooseConnection: db,
+        autoRemove: "disabled",
+      },
+      function (err) {
+        console.log(err || "connect mongo is working fine");
+      }
+    ),
+  })
+);
+
+app.use(passport.initialize());
+app.use(passport.session());
+
+app.use(passport.setAuthenticatedUser);
+
+// routes middleware
 app.use("/", require("./routes"));
 
 app.listen(port, (err) => {

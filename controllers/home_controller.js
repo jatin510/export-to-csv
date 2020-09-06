@@ -64,4 +64,27 @@ module.exports.exportToCSV = async (req, res) => {
   }
 };
 
-module.exports.createEmployee = (req, res) => {};
+module.exports.createEmployee = async (req, res) => {
+  console.log("inside create employee");
+
+  let employee = await Employee.findOne({ email: req.body.email });
+
+  // if the employee is already there
+  if (employee) return res.redirect("back");
+
+  if (req.body.password != req.body.confirm_password)
+    return res.redirect("back");
+
+  await Employee.create(req.body);
+
+  console.log("error creating compnay data");
+  return res.redirect("/");
+};
+
+module.exports.createSession = (req, res) => res.redirect("/");
+
+module.exports.destroySession = (req, res) => {
+  req.logout();
+
+  return res.redirect("/");
+};

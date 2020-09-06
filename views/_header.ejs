@@ -1,5 +1,5 @@
 <header>
-  <h2>Header</h2>
+  <h4>Header</h4>
 
   <ul>
     <li>
@@ -11,6 +11,18 @@
     <li>
       <a href="/company">Company</a>
     </li>
+    <%if(locals.employee){%>
+    <li>
+      <a href="/signout">Signout</a>
+    </li>
+    <%}else{%>
+    <li>
+      <a href="/signup">Signup</a>
+    </li>
+    <li>
+      <a href="/signin">SignIn</a>
+    </li>
+    <%}%>
   </ul>
   <hr />
 </header>
