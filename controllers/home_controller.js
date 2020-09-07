@@ -77,11 +77,13 @@ module.exports.createEmployee = async (req, res) => {
 
   await Employee.create(req.body);
 
-  console.log("error creating compnay data");
   return res.redirect("/");
 };
 
-module.exports.createSession = (req, res) => res.redirect("/");
+module.exports.createSession = (req, res) => {
+  console.log("creating session");
+  res.redirect("/");
+};
 
 module.exports.destroySession = (req, res) => {
   req.logout();

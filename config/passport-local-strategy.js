@@ -48,7 +48,7 @@ passport.checkAuthentication = function (req, res, next) {
     return next();
   }
 
-  return res.redirect("/users/sign-in");
+  return res.redirect("/signin");
 };
 
 passport.setAuthenticatedUser = function (req, res, next) {
@@ -56,6 +56,7 @@ passport.setAuthenticatedUser = function (req, res, next) {
     // console.log("inside setAuthenUser", req.user);
 
     res.locals.user = req.user;
+    console.log(res.locals.user);
   }
 
   next();

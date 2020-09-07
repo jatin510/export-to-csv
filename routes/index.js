@@ -1,6 +1,7 @@
 const router = require("express").Router();
 const homeController = require("../controllers/home_controller");
 const { home } = require("../controllers/interview_controller");
+const passport = require("passport");
 
 router.get("/", homeController.home);
 // employee
@@ -15,7 +16,7 @@ router.post(
 router.get("/signout", homeController.destroySession);
 
 // middlewares
-router.use("/company", require("./company"));
-router.use("/student", require("./student"));
-router.use("/interview", require("./interview"));
+router.use("/company", passport.checkAuthentication, require("./company"));
+router.use("/student", passport.checkAuthentication, require("./student"));
+router.use("/interview", passport.checkAuthentication, require("./interview"));
 module.exports = router;

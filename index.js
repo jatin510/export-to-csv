@@ -13,7 +13,7 @@ const mongoStore = require("connect-mongo")(session);
 app.use(express.urlencoded());
 app.use(cookieParser());
 
-app.use("/uploads", express.static(__dirname + "/uploads"));
+// app.use("/uploads", express.static(__dirname + "/uploads"));
 
 // setting up layouts
 app.use(expressLayouts);
@@ -39,6 +39,8 @@ app.use(
         autoRemove: "disabled",
       },
       function (err) {
+        console.log("mongo connect");
+        console.log("***********8");
         console.log(err || "connect mongo is working fine");
       }
     ),
