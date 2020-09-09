@@ -40,6 +40,7 @@ start the project :
     - interview.js
     - employee.js
   - views
+
     - \_footer.js
     - \_header.js
     - company.js
@@ -50,8 +51,8 @@ start the project :
     - signup.js
     - student.js
 
-- index.js
-- package.json
+  - index.js
+  - package.json
 
 * Authentication is done with passport js - local authentication .
 
