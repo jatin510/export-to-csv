@@ -32,3 +32,7 @@ module.exports.createInterview = (req, res) => {
 
   return res.redirect("back");
 };
+
+module.exports.company = (req, res) => {
+  return res.render("company_interview", { company });
+};

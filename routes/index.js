@@ -4,6 +4,8 @@ const { home } = require("../controllers/interview_controller");
 const passport = require("passport");
 
 router.get("/", homeController.home);
+router.get("/download", homeController.exportToCSV);
+
 // employee
 router.get("/signup", (req, res) => res.render("signup"));
 router.post("/create", homeController.createEmployee);

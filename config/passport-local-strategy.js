@@ -58,7 +58,6 @@ passport.setAuthenticatedUser = function (req, res, next) {
     // console.log("inside setAuthenUser", req.user);
     console.log("user is authenticated");
     res.locals.employee = req.user;
-    console.log("locals", res.locals.employee);
   }
 
   next();

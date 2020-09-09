@@ -51,7 +51,7 @@ module.exports.exportToCSV = async (req, res) => {
       finalData.push(data);
     }
 
-    console.log("creating csv", finalData);
+    // console.log("creating csv", finalData);
     csvWriter
       .writeRecords(finalData)
       .then(() => console.log("The CSV file was written successfully"))

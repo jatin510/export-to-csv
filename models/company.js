@@ -21,6 +21,11 @@ const companySchema = new mongoose.Schema(
     openings: {
       type: Number,
     },
+    package: {
+      type: String,
+      required: true,
+    },
+    students: [{ type: mongoose.Schema.Types.ObjectId, ref: "Student" }],
   },
   { timestamps: true }
 );

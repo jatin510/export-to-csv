@@ -6,6 +6,9 @@ ADD Company
   Info : <input type="text" name="info" placeholder="Enter Info" /> <br />
   Openings :
   <input type="number" name="openings" placeholder="Openings" /><br />
+  Package :
+  <input type="number" name="package" placeholder="Package" /><br />
+
   <input type="submit" value="SUBMIT" />
 </form>
 
@@ -16,6 +19,7 @@ ADD Company
   <tr>
     <td>Name</td>
     <td>Info</td>
+    <td>Package</td>
     <td>Openings</td>
   </tr>
 
@@ -25,6 +29,7 @@ ADD Company
   <tr>
     <td><%=company.name%></td>
     <td><%=company.info%></td>
+    <td><%=company.package%></td>
     <td><%=company.openings%></td>
   </tr>
   <%}%><%}%>
